@@ -19,7 +19,7 @@ public class TaskService {
     public TaskForWorker getTask(Integer id) {
         try (Session session = AppSessionFactory.getSession()) {
             Transaction transaction = session.beginTransaction();
-            TaskForWorker task = session.find(TaskForWorker.class, id);
+            TaskForWorker task = session.find(TaskForWorker.class, id, LockModeType.OPTIMISTIC);
             transaction.commit();
             return task;
         }

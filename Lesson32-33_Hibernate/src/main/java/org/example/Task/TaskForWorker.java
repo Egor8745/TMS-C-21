@@ -16,6 +16,8 @@ public class TaskForWorker {
     private Integer id;
     private String title;
     private String description;
+    @Version
+    Integer version;
     @Enumerated(EnumType.STRING)
     private StatusTask statusTask;
 

@@ -24,7 +24,7 @@ public class Worker {
     private Date DateOfBirth;
     private String gender;
 
-    @OneToMany(mappedBy = "worker")
+    @OneToMany(mappedBy = "worker", cascade = CascadeType.All)
     private List<TaskForWorker> task;
 
 
@@ -35,5 +35,14 @@ public class Worker {
         DateOfBirth = dateOfBirth;
         this.gender = gender;
         this.task = task;
+    }
+    @PrePersist
+    public void prePersist() {
+        System.out.println("Call prePersist");
+    }
+
+    @PostPersist
+    public void postPersist() {
+        System.out.println("Call postPersist");
     }
 }
