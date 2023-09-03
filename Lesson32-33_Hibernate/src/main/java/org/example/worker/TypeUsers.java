@@ -1,4 +1,4 @@
-package org.example.Worker;
+package org.example.worker;
 
 public enum TypeUsers {
     USER,

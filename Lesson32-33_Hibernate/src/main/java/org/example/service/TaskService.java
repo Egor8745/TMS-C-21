@@ -1,10 +1,13 @@
-package org.example.Task;
+package org.example.service;
 
 import org.example.AppSessionFactory;
-import org.example.Worker.Worker;
+import org.example.task.StatusTask;
+import org.example.task.TaskForWorker;
+import org.example.worker.Worker;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.LockModeType;
 import java.util.List;
 
 public class TaskService {

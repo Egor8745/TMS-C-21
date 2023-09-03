@@ -1,7 +1,7 @@
 package org.example;
 
-import org.example.Task.TaskForWorker;
-import org.example.Worker.Worker;
+import org.example.task.TaskForWorker;
+import org.example.worker.Worker;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AvailableSettings;

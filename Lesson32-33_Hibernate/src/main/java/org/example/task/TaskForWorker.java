@@ -1,15 +1,14 @@
-package org.example.Task;
+package org.example.task;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.Worker.Worker;
+import org.example.worker.Worker;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @NoArgsConstructor
-
 public class TaskForWorker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +16,7 @@ public class TaskForWorker {
     private String title;
     private String description;
     @Version
-    Integer version;
+    private Integer version;
     @Enumerated(EnumType.STRING)
     private StatusTask statusTask;
 

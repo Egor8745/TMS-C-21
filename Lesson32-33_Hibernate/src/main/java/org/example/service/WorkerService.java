@@ -1,6 +1,7 @@
-package org.example.Worker;
+package org.example.service;
 
 import org.example.AppSessionFactory;
+import org.example.worker.Worker;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

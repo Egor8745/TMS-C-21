@@ -1,11 +1,11 @@
 package org.example;
 
-import org.example.Task.StatusTask;
-import org.example.Task.TaskForWorker;
-import org.example.Task.TaskService;
-import org.example.Worker.TypeUsers;
-import org.example.Worker.Worker;
-import org.example.Worker.WorkerService;
+import org.example.task.StatusTask;
+import org.example.task.TaskForWorker;
+import org.example.service.TaskService;
+import org.example.worker.TypeUsers;
+import org.example.worker.Worker;
+import org.example.service.WorkerService;
 
 import java.util.Date;
 import java.util.List;
