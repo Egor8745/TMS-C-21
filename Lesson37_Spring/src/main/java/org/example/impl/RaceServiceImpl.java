@@ -19,6 +19,7 @@ public class RaceServiceImpl implements RaceService {
     public void listCouples() {
         System.out.println(coupleList);
     }
+
     @Override
     public void betOnCouple(Integer id) {
         this.coupleNumber = id;

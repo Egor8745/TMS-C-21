@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class BenchAspect {
     @Pointcut("@annotation(org.example.configuration.Benchmark)")
-    public void pointcut() {}
+    public void pointcut() {
+    }
 
     @Around("pointcut()")
     public Object process(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
