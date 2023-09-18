@@ -6,13 +6,17 @@ import org.example.domain.Rider;
 import org.example.impl.RaceServiceImpl;
 import org.example.service.RaceService;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Configuration
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+@ComponentScan("org.example")
 public class Config {
 
     @Bean
