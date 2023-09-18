@@ -18,7 +18,7 @@ public class RaceServiceImpl implements RaceService {
 
     @Override
     public void listCouples() {
-        System.out.println(coupleList.toString());
+        System.out.println(coupleList);
     }
 
     @Override
@@ -29,15 +29,15 @@ public class RaceServiceImpl implements RaceService {
 
     @Override
     public void startRace() {
-        double[] t = new double[coupleList.size()];
+        double[] couple = new double[coupleList.size()];
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < coupleList.size(); j++) {
-                t[j] = ((int) (coupleList.get(j).getSpeed()));
-                System.out.println(coupleList.get(j) + " has finished " + i + " round in " + t[j]);
+                couple[j] = ((int) (coupleList.get(j).getSpeed()));
+                System.out.println(coupleList.get(j) + " has finished " + i + " round in " + couple[j]);
             }
         }
-        double minTime = Arrays.stream(t).min().getAsDouble();
-        int winCouple = Arrays.binarySearch(t, minTime);
+        double minTime = Arrays.stream(couple).min().getAsDouble();
+        int winCouple = Arrays.binarySearch(couple, minTime);
         System.out.println(winCouple);
         System.out.println(coupleList.get(winCouple) + "win");
 
