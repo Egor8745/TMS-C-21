@@ -1,15 +1,14 @@
 package org.example.impl;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.example.configuration.Benchmark;
 import org.example.domain.Couple;
 import org.example.service.RaceService;
-import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 
-@NoArgsConstructor
+
 @Data
 
 public class RaceServiceImpl implements RaceService {
@@ -27,7 +26,9 @@ public class RaceServiceImpl implements RaceService {
         System.out.println("your bet has been accepted");
     }
 
+
     @Override
+    @Benchmark
     public void startRace() {
         double[] couple = new double[coupleList.size()];
         for (int i = 0; i < 5; i++) {
