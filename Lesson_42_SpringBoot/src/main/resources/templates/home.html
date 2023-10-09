@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/student" method="post" th:object="${student}">
+    <input type="text" th:field="*{name}" th:text="Name"><br>
+    <input type="text" th:field="*{surname}" th:text="Surname"><br>
+    <input type="text" th:field="*{age}" th:text="Age"><br>
+    <button>Add</button>
+</form>
+<ul>
+    <li th:each="item:${students}">
+        <p th:text="${item.name} + ' , ' + ${item.surname} + ' , ' + ${item.age}"></p>
+    </li>
+
+</ul>
+</body>
+</html>
