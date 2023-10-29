@@ -12,12 +12,15 @@ public interface StudentMapper {
     @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "name")
     @Mapping(target = "surname", source = "surname")
+    @Mapping(target = "number", source = "number")
     StudentEntity toEntity(StudentDto dto);
 
     @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "name")
     @Mapping(target = "surname", source = "surname")
+    @Mapping(target = "number", source = "number")
     StudentDto toStudentDto(StudentEntity entity);
 
     List<StudentDto> toDtoList(List<StudentEntity> entity);
 }
+

@@ -5,4 +5,6 @@ spring:
     password: secret
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
+#      ddl-auto: create-drop
+    show-sql: true

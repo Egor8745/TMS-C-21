@@ -10,15 +10,9 @@ public class StudentDto {
     private String name;
     private String surname;
     private Integer age;
+    private Integer number;
 
     public StudentDto() {
-    }
-
-    public StudentDto(UUID id, String name, String surname, Integer age) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
     }
 
     public UUID getId() {
@@ -51,5 +45,22 @@ public class StudentDto {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+
+        this.number = number;
+    }
+
+    public StudentDto(UUID id, String name, String surname, Integer age, Integer number) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.number = number;
     }
 }
