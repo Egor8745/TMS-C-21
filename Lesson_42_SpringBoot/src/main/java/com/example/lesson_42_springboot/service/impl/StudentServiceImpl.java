@@ -1,13 +1,18 @@
 package com.example.lesson_42_springboot.service.impl;
 
 import com.example.lesson_42_springboot.domain.StudentDto;
+import com.example.lesson_42_springboot.domain.StudentSearchDto;
 import com.example.lesson_42_springboot.mapper.StudentMapper;
 import com.example.lesson_42_springboot.model.StudentEntity;
 import com.example.lesson_42_springboot.repository.StudentRepository;
 import com.example.lesson_42_springboot.service.StudentService;
+import io.micrometer.common.util.StringUtils;
+import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -54,4 +59,28 @@ public class StudentServiceImpl implements StudentService {
         return mapper.toDtoList(allByOrderByNumberAsc);
     }
 
+    @Override
+    public List<StudentDto> search(StudentSearchDto studentSearchDto) {
+        List<StudentEntity> searchStudent = repository.findAll(createSearch(studentSearchDto));
+        return mapper.toDtoList(searchStudent);
+    }
+
+
+    private Specification<StudentEntity> createSearch(StudentSearchDto studentSearchDto) {
+        return (root, query, criteriaBuilder) -> {
+
+            List<Predicate> predicates = new ArrayList<>();
+
+            String name = studentSearchDto.getName();
+            if (StringUtils.isNotBlank(name)) {
+                predicates.add(criteriaBuilder.equal(root.get("name"), name));
+            }
+
+            String surname = studentSearchDto.getSurname();
+            if (StringUtils.isNotBlank(surname)) {
+                predicates.add(criteriaBuilder.equal(root.get("surname"), surname));
+            }
+            return criteriaBuilder.and(predicates.toArray(Predicate[]::new));
+        };
+    }
 }
