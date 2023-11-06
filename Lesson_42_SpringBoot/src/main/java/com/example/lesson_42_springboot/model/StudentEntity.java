@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.Random;
 import java.util.UUID;
 
 @Entity
@@ -19,6 +20,7 @@ public class StudentEntity {
     private String name;
     private String surname;
     private Integer age;
+    private Integer number;
 
     public StudentEntity() {
     }
@@ -55,10 +57,25 @@ public class StudentEntity {
         this.age = age;
     }
 
-    public StudentEntity(UUID id, String name, String surname, Integer age) {
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        Random random = new Random();
+        int randomNumber = random.nextInt(10);
+        this.number = randomNumber;
+    }
+
+    public void setNewNumber(Integer number) {
+        this.number = number;
+    }
+
+    public StudentEntity(UUID id, String name, String surname, Integer age, Integer number) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
+        this.number = number;
     }
 }

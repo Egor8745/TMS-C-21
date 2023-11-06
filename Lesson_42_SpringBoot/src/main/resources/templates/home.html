@@ -12,11 +12,25 @@
     <input type="text" th:field="*{age}" th:text="Age"><br>
     <button>Add</button>
 </form>
-<ul>
+<ol>
     <li th:each="item:${students}">
-        <p th:text="${item.name} + ' , ' + ${item.surname} + ' , ' + ${item.age}"></p>
-    </li>
+        <p th:text="${item.name} + ' , ' + ${item.surname} + ' , ' + ${item.age} + ' , ' + ${item.number}">
 
-</ul>
+        <form action="/student/order" method="post" th:action="@{/student/order(id=${item.id})}">
+            <input type="submit" name="order" value="up">
+            <input type="submit" name="order" value="down">
+        </form>
+
+    </li>
+</ol>
+<hr>
+<h1>Search</h1>
+<form action="/student/search" method="post" th:object="${studentSearch}">
+    Name: <input type="text" th:field="*{name}" name="name"> <br>
+    Surname: <input type="text" th:field="*{surname}" name="surname"> <br>
+    <input type="submit" value="Search">
+</form>
+<hr>
+<br>
 </body>
 </html>
